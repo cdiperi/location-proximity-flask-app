@@ -1,8 +1,6 @@
 # location-proximity-flask-app
 
-This app was developed to provide a simple and informative way to locate stores within a specified radius of a specified target store.
-  - Provides the ability to filter by a distance.
-  - Provides the ability to filter by company.
+This app was developed to provide a simple and informative way to locate stores within a specified radius of a specified target store. The context of this app is within a large specialty retailer that is the parent of several smaller retail companies, together summing up to over 1,300 retail locations in the country. The app allows the user to filter the results by both distance and by company, which was derived from the first two characters of the unique store identifier in this case.
 
 The steps I took to populate the database:
   1) Began with a report containing each open store along with their addresses.
