@@ -5,10 +5,10 @@ import json
 import decimal
 
 SQLALCHEMY_DATABASE_URI = "mysql+mysqlconnector://{username}:{password}@{hostname}/{databasename}".format(
-    username="madvillain",
-    password="Passw0rd!",
-    hostname="madvillain.mysql.pythonanywhere-services.com",
-    databasename="madvillain$default",
+    username="YOUR_USERNAME",
+    password="YOUR_PASSWORD!",
+    hostname="YOUR_HOSTNAME",
+    databasename="YOUR_DATABASE",
 )
 app.config["SQLALCHEMY_DATABASE_URI"] = SQLALCHEMY_DATABASE_URI
 app.config["SQLALCHEMY_POOL_RECYCLE"] = 299
