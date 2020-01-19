@@ -1,0 +1,166 @@
+<html>
+    <head>
+        <style>
+            h1 { font-family: "Open Sans"; font-size: 18px; font-style: normal; font-variant: normal; font-weight: 700; line-height: 26.4px; }
+            h3 { font-family: "Open Sans"; font-size: 16px; font-style: normal; font-variant: normal; font-weight: 700; line-height: 15.4px; }
+            p { font-family: "Open Sans"; font-size: 14px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 20px; }
+            input { font-family: "Open Sans"; font-size: 14px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 20px; }
+            blockquote { font-family: "Open Sans"; font-size: 21px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 30px; }
+            pre { font-family: "Open Sans"; font-size: 13px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 18.5714px; }
+        </style>
+        <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
+        <link rel="stylesheet" link href="/static/css/test_styles.css">
+    </head>
+    <body>
+        <div class="grid-container">
+            <div class="Map" id="map">
+                <script>
+                    function initMap() {
+                    var home = {lat: 36.111830, lng: -86.691920};
+                    var styledMapType = new google.maps.StyledMapType(
+                        [
+                          {elementType: 'geometry', stylers: [{color: '#ebe3cd'}]},
+                          {elementType: 'labels.text.fill', stylers: [{color: '#523735'}]},
+                          {elementType: 'labels.text.stroke', stylers: [{color: '#f5f1e6'}]},
+                          {
+                            featureType: 'administrative',
+                            elementType: 'geometry.stroke',
+                            stylers: [{color: '#c9b2a6'}]
+                          },
+                          {
+                            featureType: 'administrative.land_parcel',
+                            elementType: 'geometry.stroke',
+                            stylers: [{color: '#dcd2be'}]
+                          },
+                          {
+                            featureType: 'administrative.land_parcel',
+                            elementType: 'labels.text.fill',
+                            stylers: [{color: '#ae9e90'}]
+                          },
+                          {
+                            featureType: 'landscape.natural',
+                            elementType: 'geometry',
+                            stylers: [{color: '#dfd2ae'}]
+                          },
+                          {
+                            featureType: 'poi',
+                            elementType: 'geometry',
+                            stylers: [{color: '#dfd2ae'}]
+                          },
+                          {
+                            featureType: 'poi',
+                            elementType: 'labels.text.fill',
+                            stylers: [{color: '#93817c'}]
+                          },
+                          {
+                            featureType: 'poi.park',
+                            elementType: 'geometry.fill',
+                            stylers: [{color: '#a5b076'}]
+                          },
+                          {
+                            featureType: 'poi.park',
+                            elementType: 'labels.text.fill',
+                            stylers: [{color: '#447530'}]
+                          },
+                          {
+                            featureType: 'road',
+                            elementType: 'geometry',
+                            stylers: [{color: '#f5f1e6'}]
+                          },
+                          {
+                            featureType: 'road.arterial',
+                            elementType: 'geometry',
+                            stylers: [{color: '#fdfcf8'}]
+                          },
+                          {
+                            featureType: 'road.highway',
+                            elementType: 'geometry',
+                            stylers: [{color: '#f8c967'}]
+                          },
+                          {
+                            featureType: 'road.highway',
+                            elementType: 'geometry.stroke',
+                            stylers: [{color: '#e9bc62'}]
+                          },
+                          {
+                            featureType: 'road.highway.controlled_access',
+                            elementType: 'geometry',
+                            stylers: [{color: '#e98d58'}]
+                          },
+                          {
+                            featureType: 'road.highway.controlled_access',
+                            elementType: 'geometry.stroke',
+                            stylers: [{color: '#db8555'}]
+                          },
+                          {
+                            featureType: 'road.local',
+                            elementType: 'labels.text.fill',
+                            stylers: [{color: '#806b63'}]
+                          },
+                          {
+                            featureType: 'transit.line',
+                            elementType: 'geometry',
+                            stylers: [{color: '#dfd2ae'}]
+                          },
+                          {
+                            featureType: 'transit.line',
+                            elementType: 'labels.text.fill',
+                            stylers: [{color: '#8f7d77'}]
+                          },
+                          {
+                            featureType: 'transit.line',
+                            elementType: 'labels.text.stroke',
+                            stylers: [{color: '#ebe3cd'}]
+                          },
+                          {
+                            featureType: 'transit.station',
+                            elementType: 'geometry',
+                            stylers: [{color: '#dfd2ae'}]
+                          },
+                          {
+                            featureType: 'water',
+                            elementType: 'geometry.fill',
+                            stylers: [{color: '#b9d3c2'}]
+                          },
+                          {
+                            featureType: 'water',
+                            elementType: 'labels.text.fill',
+                            stylers: [{color: '#92998d'}]
+                          }
+                        ],
+                        {name: 'Styled Map'});
+                    var map = new google.maps.Map(
+                        document.getElementById('map'), {zoom: 10, center: home});
+                    map.mapTypes.set('styled_map', styledMapType);
+                    map.setMapTypeId('styled_map');
+                        }
+                </script>
+                <script async defer
+                    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpPxqrRI5F2h_5HC7IkEnrn1ttHHL8SNQ&callback=initMap">
+                </script>
+            </div>
+            <div class="Search">
+                <h1 style="text-align:center;">Enter Location Code:</h1>
+                <form action="/test/locate" method="post">
+                    <p style="text-align:center;"><input type="text" id="userInput" name="store" placeholder="e.g., JN0255, JM1819" value="{{request.form['store']}}"/></p>
+                    <p style="text-align:center;"><input class="main-search" type="submit" value="Find Nearby Stores" /></p>
+                    <div class="error_message"><p style="color: #ff3300;font-style:italic;text-align:center;font-weight:bold;">- Invalid Location Code -</p></div>
+                    <h3 style="text-align:center;">Select Company:</h3>
+                    <div style="padding-left:15px;">
+                    <input type="radio" name="company" value="AL"> All<br>
+                    <input type="radio" name="company" value="JN"> Journey's<br>
+                    <input type="radio" name="company" value="JM"> Johnston & Murphy<br>
+                    </div>
+                    <div class="gap-20"></div>
+                    <h3 style="text-align:center;">Select Distance:</h3>
+                    <div style="padding-left:15px;">
+                    <input type="radio" name="distance" value="m5"> 5 miles<br>
+                    <input type="radio" name="distance" value="m10"> 10 miles<br>
+                    <input type="radio" name="distance" value="m25"> 25 miles<br>
+                    <input type="radio" name="distance" value="m50"> 50 miles<br>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

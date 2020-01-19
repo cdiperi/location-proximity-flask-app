@@ -1,0 +1,194 @@
+<html>
+    <head>
+        <style>
+            h1 { font-family: "Open Sans"; font-size: 18px; font-style: normal; font-variant: normal; font-weight: 700; line-height: 26.4px; }
+            h3 { font-family: "Open Sans"; font-size: 16px; font-style: normal; font-variant: normal; font-weight: 700; line-height: 15.4px; }
+            p { font-family: "Open Sans"; font-size: 14px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 20px; }
+            input { font-family: "Open Sans"; font-size: 14px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 20px; }
+            blockquote { font-family: "Open Sans"; font-size: 21px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 30px; }
+            pre { font-family: "Open Sans"; font-size: 13px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 18.5714px; }
+        </style>
+        <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
+        <link rel="stylesheet" link href="/static/css/styles.css">
+    </head>
+    <body>
+        <div class="grid-container">
+            <div class="Map" id="map">
+                <script>
+                    function initMap() {
+                    var home = {lat: 36.111830, lng: -86.691920};
+                    var styledMapType = new google.maps.StyledMapType(
+                        [
+                            {
+                                "elementType": "geometry",
+                                "stylers": [
+                                    {
+                                        "hue": "#ff4400"
+                                    },
+                                    {
+                                        "saturation": -68
+                                    },
+                                    {
+                                        "lightness": -4
+                                    },
+                                    {
+                                        "gamma": 0.72
+                                    }
+                                ]
+                            },
+                            {
+                                "featureType": "road",
+                                "elementType": "labels.icon"
+                            },
+                            {
+                                "featureType": "landscape.man_made",
+                                "elementType": "geometry",
+                                "stylers": [
+                                    {
+                                        "hue": "#0077ff"
+                                    },
+                                    {
+                                        "gamma": 3.1
+                                    }
+                                ]
+                            },
+                            {
+                                "featureType": "water",
+                                "stylers": [
+                                    {
+                                        "hue": "#00ccff"
+                                    },
+                                    {
+                                        "gamma": 0.44
+                                    },
+                                    {
+                                        "saturation": -33
+                                    }
+                                ]
+                            },
+                            {
+                                "featureType": "poi.park",
+                                "stylers": [
+                                    {
+                                        "hue": "#44ff00"
+                                    },
+                                    {
+                                        "saturation": -23
+                                    }
+                                ]
+                            },
+                            {
+                                "featureType": "water",
+                                "elementType": "labels.text.fill",
+                                "stylers": [
+                                    {
+                                        "hue": "#007fff"
+                                    },
+                                    {
+                                        "gamma": 0.77
+                                    },
+                                    {
+                                        "saturation": 65
+                                    },
+                                    {
+                                        "lightness": 99
+                                    }
+                                ]
+                            },
+                            {
+                                "featureType": "water",
+                                "elementType": "labels.text.stroke",
+                                "stylers": [
+                                    {
+                                        "gamma": 0.11
+                                    },
+                                    {
+                                        "weight": 5.6
+                                    },
+                                    {
+                                        "saturation": 99
+                                    },
+                                    {
+                                        "hue": "#0091ff"
+                                    },
+                                    {
+                                        "lightness": -86
+                                    }
+                                ]
+                            },
+                            {
+                                "featureType": "transit.line",
+                                "elementType": "geometry",
+                                "stylers": [
+                                    {
+                                        "lightness": -48
+                                    },
+                                    {
+                                        "hue": "#ff5e00"
+                                    },
+                                    {
+                                        "gamma": 1.2
+                                    },
+                                    {
+                                        "saturation": -23
+                                    }
+                                ]
+                            },
+                            {
+                                "featureType": "transit",
+                                "elementType": "labels.text.stroke",
+                                "stylers": [
+                                    {
+                                        "saturation": -64
+                                    },
+                                    {
+                                        "hue": "#ff9100"
+                                    },
+                                    {
+                                        "lightness": 16
+                                    },
+                                    {
+                                        "gamma": 0.47
+                                    },
+                                    {
+                                        "weight": 2.7
+                                    }
+                                ]
+                            }
+                        ],
+                        {name: 'Styled Map'});
+                    var map = new google.maps.Map(
+                        document.getElementById('map'), {zoom: 10, center: home});
+                    map.mapTypes.set('styled_map', styledMapType);
+                    map.setMapTypeId('styled_map');
+                        }
+                </script>
+                <script async defer
+                    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpPxqrRI5F2h_5HC7IkEnrn1ttHHL8SNQ&callback=initMap">
+                </script>
+            </div>
+            <div class="Search">
+                <h1 style="text-align:center;">Enter Location Code:</h1>
+                <form action="/locate" method="post">
+                    <p style="text-align:center;"><input type="text" id="userInput" name="store" placeholder="e.g., JN0255, JM1819" value="{{request.form['store']}}"/></p>
+                    <p style="text-align:center;"><input class="main-search" type="submit" value="Find Nearby Stores" /></p>
+                    <div class="gap-10"></div>
+                    <h3 style="text-align:center;">Select Company:</h3>
+                    <div style="padding-left:15px;">
+                    <input type="radio" name="company" value="AL"> All<br>
+                    <input type="radio" name="company" value="JN"> Journey's<br>
+                    <input type="radio" name="company" value="JM"> Johnston & Murphy<br>
+                    </div>
+                    <div class="gap-20"></div>
+                    <h3 style="text-align:center;">Select Distance:</h3>
+                    <div style="padding-left:15px;">
+                    <input type="radio" name="distance" value="m5"> 5 miles<br>
+                    <input type="radio" name="distance" value="m10"> 10 miles<br>
+                    <input type="radio" name="distance" value="m25"> 25 miles<br>
+                    <input type="radio" name="distance" value="m50"> 50 miles<br>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

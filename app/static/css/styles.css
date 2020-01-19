@@ -1,0 +1,113 @@
+button {
+    width: 111px;
+    float:right;
+    height: 25px;
+    margin-top: 3px;
+    display: table-cell;
+    vertical-align: middle;
+}
+.Prompt1 {text-align: center;}
+.Prompt2 {text-align: center;}
+.Prompt3 {text-align: center;}
+#map {
+    height: 600px;
+    width: 100%;
+}
+/*body { background-color: #638D9B;*/
+/*}*/
+body { background-color: #638D9B;
+}
+.grid-container {
+  display: grid;
+  grid-template-columns: 14% 0.5% 85.5%;
+  grid-template-rows: 600px flex;
+  grid-template-areas: "Search Space Map" "Table1 Table1 Table1";
+}
+.Space { grid-area: Space;}
+.Table1 { grid-area: Table1;
+          padding-top: 0.5em;
+          border-radius: 5px;
+}
+.Map { grid-area: Map;
+    border-radius: 5px;
+}
+.Search { grid-area: Search;
+          /* padding-left: 0.1em; */
+          padding-top: 0.2em;
+          background-color: #F8F8F9;
+          -moz-box-shadow:    inset 0 0 2px #000000;
+          -webkit-box-shadow: inset 0 0 2px #000000;
+          box-shadow:         inset 0 0 2px #000000;
+          border-radius: 5px;
+}
+
+@media only screen and (min-width: 1700px)  {
+    .grid-container {
+        display: grid;
+        grid-template-columns: 10% 0.5% 89.5%;
+        grid-template-rows: 700px flex;
+        grid-template-areas: "Search Space Map" "Table1 Table1 Table1";
+    }
+    #map {
+        height: 700px;
+        width: 100%;
+    }
+    .Search { grid-area: Search;
+          /* padding-left: 0.25em; */
+          padding-top: 0.25em;
+          background-color: #F8F8F9;
+          -moz-box-shadow:    inset 0 0 2px #000000;
+          -webkit-box-shadow: inset 0 0 2px #000000;
+          box-shadow:         inset 0 0 2px #000000;
+          border-radius: 5px;
+    }
+    .Table1 { grid-area: Table1;
+          padding-top: 0.5em;
+          border-radius: 5px;
+    }
+}
+table#t01 {
+    width: 100%;
+    background-color: #F8F8F9;
+    border-collapse: collapse;
+    }
+th, td {
+    border-bottom: 1px solid #ddd;
+    width: 10% 10% 44% 18% 18%;
+    }
+th {
+    color: #F8F8F9;
+    background-color: #60685e;
+    }
+tr:nth-child(even) {background-color: #d8dcd5;}
+tr:hover {background-color: #e7dc9a;}
+/* .column { float: left; } */
+h1 {
+    margin-top: 20px;
+}
+h3 {
+    margin-top: 3px;
+}
+h2 {
+    margin-bottom: 3px;
+}
+::-webkit-input-placeholder {
+   font-style: italic;
+}
+:-moz-placeholder {
+   font-style: italic;
+}
+::-moz-placeholder {
+   font-style: italic;
+}
+:-ms-input-placeholder {
+   font-style: italic;
+}
+.gap-10 {
+    width:100%;
+    height:32.5px;
+}
+.gap-20 {
+    width:100%;
+    height:20px;
+}
