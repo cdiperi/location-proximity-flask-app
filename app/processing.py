@@ -66,7 +66,6 @@ def find_stores(store, c_list, d_list):
     if store in store_list:
         stores = None
         if 'AL' in c_list:
-            # cAL = "checked"
             if 'm5' in d_list:
                 stores = Location.query.filter(Location.Location1==store, Location.Dist <= 5).order_by(Location.Dist).all()
             elif 'm10' in d_list:
@@ -79,7 +78,6 @@ def find_stores(store, c_list, d_list):
                 stores = Location.query.filter(Location.Location1==store, Location.Dist <= 25).order_by(Location.Dist).all()
         else:
             if 'JM' in c_list:
-                # cJM = "checked"
                 if 'm5' in d_list:
                     stores = Location.query.filter(Location.Location1==store, Location.Dist <= 5, Location.Sub=='JM').order_by(Location.Dist).all()
                 elif 'm10' in d_list:
@@ -91,7 +89,6 @@ def find_stores(store, c_list, d_list):
                 else:
                     stores = Location.query.filter(Location.Location1==store, Location.Dist <= 25, Location.Sub=='JM').order_by(Location.Dist).all()
             if 'JN' in c_list:
-                # cJN = "checked"
                 if 'm5' in d_list:
                     stores = Location.query.filter(Location.Location1==store, Location.Dist <= 5, Location.Sub!='JM').order_by(Location.Dist).all()
                 elif 'm10' in d_list:
@@ -103,7 +100,6 @@ def find_stores(store, c_list, d_list):
                 else:
                     stores = Location.query.filter(Location.Location1==store, Location.Dist <= 25, Location.Sub!='JM').order_by(Location.Dist).all()
         if stores == None:
-            # cAL = "checked"
             if 'm5' in d_list:
                 stores = Location.query.filter(Location.Location1==store, Location.Dist <= 5).order_by(Location.Dist).all()
             elif 'm10' in d_list:
