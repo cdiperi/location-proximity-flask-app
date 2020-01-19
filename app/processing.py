@@ -390,7 +390,7 @@ def make_site(r):
                         }
                     </script>
                     <script async defer
-                        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpPxqrRI5F2h_5HC7IkEnrn1ttHHL8SNQ&callback=initMap">
+                        src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap">
                     </script>
                     <script lang="javascript" src="/static/js/xlsx.core.min.js"></script>
                     <script src="/static/js/FileSaver.js"></script>
@@ -692,7 +692,7 @@ def make_test_site(r):
                         }
                     </script>
                     <script async defer
-                        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpPxqrRI5F2h_5HC7IkEnrn1ttHHL8SNQ&callback=initMap">
+                        src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap">
                     </script>
                     <script lang="javascript" src="/static/js/xlsx.core.min.js"></script>
                     <script src="/static/js/FileSaver.js"></script>
