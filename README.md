@@ -10,7 +10,7 @@ The steps I took to populate the database:
   3) Using geopy, compared each store to every other store and calculated the straight-line distance for each instance.
   4) Filtered the above results to only instances where the straight-line distance was less than 50 miles.
   5) Using Google Maps Distance Matrix API, obtained the driving distance and duration for each instance.
-  6) Filtered the above results to only stores where the driving distance was less than 50 miles.
+  6) Filtered the above results to only instances where the driving distance was less than 50 miles.
   7) Imported this data into the database using pandas and sqlalchemy.
   
 Originally built on pythonanywhere.com using their cloud-hosted MySQL database.
