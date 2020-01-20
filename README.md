@@ -10,9 +10,10 @@ The steps I took to populate the database:
   5) Using Google Maps Distance Matrix API, obtained the driving distance and duration for each instance.
   6) Filtered the above results to only instances where the driving distance was less than 50 miles.
   7) Imported this data into the database using pandas and sqlalchemy.
+  
+A screen shot of the app:
+https://user-images.githubusercontent.com/51775791/72740880-2fa3eb80-3b6c-11ea-95f5-c5f2c65e3568.PNG
 
 This app requires a Google Maps API key.
 
 Originally built on www.pythonanywhere.com using their MySQL database.
-
-https://user-images.githubusercontent.com/51775791/72740880-2fa3eb80-3b6c-11ea-95f5-c5f2c65e3568.PNG
