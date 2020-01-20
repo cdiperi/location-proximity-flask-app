@@ -14,3 +14,5 @@ The steps I took to populate the database:
 This app requires a Google Maps API key.
 
 Originally built on www.pythonanywhere.com using their MySQL database.
+
+https://user-images.githubusercontent.com/51775791/72740880-2fa3eb80-3b6c-11ea-95f5-c5f2c65e3568.PNG
