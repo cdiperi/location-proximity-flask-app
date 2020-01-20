@@ -12,6 +12,7 @@ The steps I took to populate the database:
   7) Imported this data into the database using pandas and sqlalchemy.
   
 A screen shot of the app:
+
 https://user-images.githubusercontent.com/51775791/72740880-2fa3eb80-3b6c-11ea-95f5-c5f2c65e3568.PNG
 
 This app requires a Google Maps API key.
